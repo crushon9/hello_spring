@@ -15,7 +15,7 @@ public class HelloController {
         return "hello";
     }
 
-    // 1. 정적 컨텐츠 static : 컨트롤러를 타지 않고 그냥 html 파일 자체를 반환
+    // 1. 정적 컨텐츠 static : 컨트롤러를 타지 않고 그냥 html 파일 자체를 반환 (url이 겹치면 컨트롤러 우선 반환)
 
     // 2. MVC와 템플릿 엔진 : viewResolver로 변환된 html를 반환하는 방식
     @GetMapping("hello-mvc")
