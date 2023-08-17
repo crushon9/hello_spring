@@ -7,26 +7,24 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.*;
+/* 원래 class 이름 뒤에 test를 붙이는 것이 관행
+ * Test 코드를 먼저 만들고 구현하는 것을 TDD라 함 (테스트 주도 개발) */
 
+import static org.assertj.core.api.Assertions.*; // static import하면 assertThat메소드를 바로 사용가능
 
-class MemoryMemberRepositoryTest {
-
-    MemoryMemberRepository repository = new MemoryMemberRepository();
-
+class MemoryMemberRepositoryTest { // class를 실행하면 test 메소드 모두 동작된다. 순서는 보장되지 않는다.
     /*
-        한번에 여러 테스트를 실행하면 메모리 DB에 직전 테스트의 결과가 남을 수 있다. 이렇게
-        되면 다음 이전 테스트 때문에 다음 테스트가 실패할 가능성이 있다. @AfterEach 를 사용하면 각 테스트가
-        종료될 때 마다 이 기능을 실행한다. 여기서는 메모리 DB에 저장된 데이터를 삭제한다.
-        테스트는 각각 독립적으로 실행되어야 한다. 테스트 순서에 의존관계가 있는 것은 좋은 테스트가 아니다
-    */
+     * 한번에 여러 테스트를 실행하면 메모리에 직전 테스트의 결과가 남을 수 있다.
+     * @AfterEach 를 사용하면 각 테스트가 종료될 때 마다 메모리에 저장된 데이터를 삭제한다.
+     */
+    MemoryMemberRepository repository = new MemoryMemberRepository();
 
     @AfterEach
     public void afterEach() {
         repository.clearStore();
     }
 
-    @Test
+    @Test // @Test 해당 메소드를 main 메소드처럼 그냥 실행할수있다
     public void save() {
         //given
         Member member = new Member();
@@ -35,7 +33,7 @@ class MemoryMemberRepositoryTest {
         repository.save(member);
         //then
         Member result = repository.findById(member.getId()).get();
-        Assertions.assertEquals(member, result);
+        Assertions.assertEquals(member, result); // 두 객체가 일치하는지 비교
     }
 
     @Test
