@@ -3,16 +3,25 @@ package cm.practices.hello_spring.service;
 import cm.practices.hello_spring.domain.Member;
 import cm.practices.hello_spring.repository.MemberRepository;
 import cm.practices.hello_spring.repository.MemoryMemberRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 // 컨트롤 + 알트 + v = 리턴 타입을 찾아서 담아줌
 // 컨트롤 + t = 메소드 추출
+// 클래스이름포커스 + 알트 + 엔터 = 테스트 코드 자동생성
 
-// service는 비즈니스에 맞게 기능을 구현하고, repository는 DB 기능에 맞춰서 구현한다 
+@Service
+// service는 비즈니스에 맞게 기능을 구현하고, repository는 DB 기능에 맞춰서 구현한다
 public class MemberService {
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+
+    private final MemberRepository memberRepository;
+
+    // DI
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
 
     // 회원 가입
     public Long join(Member member) {

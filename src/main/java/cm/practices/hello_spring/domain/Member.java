@@ -13,7 +13,7 @@ public class Member {
 
     private Long id;
     private String name;
-    
+
     //getter setter 단축키 : 우클릭 generate
     public Long getId() {
         return id;
