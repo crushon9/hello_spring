@@ -2,7 +2,6 @@ package cm.practices.hello_spring.service;
 
 import cm.practices.hello_spring.domain.Member;
 import cm.practices.hello_spring.repository.MemberRepository;
-import cm.practices.hello_spring.repository.MemoryMemberRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,7 +11,6 @@ import java.util.Optional;
 // 컨트롤 + t = 메소드 추출
 // 클래스이름포커스 + 알트 + 엔터 = 테스트 코드 자동생성
 
-@Service
 // service는 비즈니스에 맞게 기능을 구현하고, repository는 DB 기능에 맞춰서 구현한다
 public class MemberService {
 

@@ -1,11 +1,9 @@
 package cm.practices.hello_spring.repository;
 
 import cm.practices.hello_spring.domain.Member;
-import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-@Repository
 public class MemoryMemberRepository implements MemberRepository {
 
     /*

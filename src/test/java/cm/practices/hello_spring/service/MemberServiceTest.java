@@ -3,10 +3,10 @@ package cm.practices.hello_spring.service;
 import cm.practices.hello_spring.domain.Member;
 
 // Assertions 관련 static import
+// static import 단축키 : alt + enter
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-import cm.practices.hello_spring.repository.MemberRepository;
 import cm.practices.hello_spring.repository.MemoryMemberRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
