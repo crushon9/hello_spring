@@ -15,9 +15,9 @@
             <tr th:each="m : ${membersss}"> <!-- model.addAttribute("membersss", members); key값과 매칭-->
                 <td th:text="${m.id}"></td>
                 <td th:text="${m.name}"></td>
-                <td th:text="${test}"></td>
+                <td th:text="${keyyy}"></td> <!-- @ModelAttribute("keyyy") int test key값과 매칭-->
             </tr>
-            <td th:text="${test}"></td>
+            <td th:text="${keyyy}"></td>
             </tbody>
         </table>
     </div>

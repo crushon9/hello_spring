@@ -50,7 +50,7 @@ public class MemberController {
 
     /** 회원조회 */
     @GetMapping("/members")
-    public String list(Model model, @ModelAttribute("test") int test) { // model은 size 0인 상태로 파라미터로 들어옴
+    public String list(Model model, @ModelAttribute("keyyy") int test) { // model은 size 0인 상태로 파라미터로 들어옴
         List<Member> members = memberService.findMembers();
         model.addAttribute("membersss", members);
         return "members/memberList"; // return에 model을 보내지않아도 값이 전달 되네?
@@ -63,7 +63,7 @@ public class MemberController {
          *
          * 2. @ModelAttribute("key") 어노테이션
          * parameter 앞에 @ModelAttribute("key") 를 추가하면 view에 전달된다.
-         * http://localhost:8080/members?test=111
+         * http://localhost:8080/members?keyyy=111
          */
     }
 
