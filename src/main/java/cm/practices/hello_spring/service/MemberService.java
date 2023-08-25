@@ -39,10 +39,13 @@ public class MemberService {
 
         // result로 안담고 바로 ifPresent로 연결하는 식으로 표현
         // Member를 Optional에 담으면 null 처리 뿐 아니라 Optional의 메소드를 쓸수있다 (ifPresent 등등)
+        // ifPresent(m -> : m은 앞의 findByName이 반환한 Optional<Member>객체, 그 객체가 존재하면 throw
         memberRepository.findByName(member.getName())
                 .ifPresent(m -> {
                     throw new IllegalStateException("이미 존재하는 회원입니다.");
                 });
+
+
     }
 
     // 전체 회원 조회

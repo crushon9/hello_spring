@@ -38,8 +38,16 @@ public class MemoryMemberRepository implements MemberRepository {
     @Override
     public Optional<Member> findByName(String name) {
         return store.values().stream()
-                .filter(member -> member.getName().equals(name))
+                .filter(m -> m.getName().equals(name))
                 .findAny();
+        // store의 values() 즉 member를 stream으로 순환하면서 람다식으로 검사
+        /** Lamda 표현식
+         * (int x, int y) -> { return x + y; }
+         * (int x, int y) -> x + y
+         * (x, y) -> x + y
+         * x -> x * x
+         * () -> x
+         * x -> { System.out.println(x); } */
     }
 
     @Override
