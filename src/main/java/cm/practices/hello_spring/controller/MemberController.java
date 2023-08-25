@@ -1,8 +1,15 @@
 package cm.practices.hello_spring.controller;
 
+import cm.practices.hello_spring.domain.Member;
 import cm.practices.hello_spring.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.List;
 
 /* 컴포넌트 스캔과 자동 의존관계 설정
  * @Component
@@ -24,6 +31,40 @@ public class MemberController {
     // new 로 생성해서 직접 넣는 방식 -> @Autowired 스프링이 대신 넣어주는 방식으로 진화
     public MemberController(MemberService memberService) {
         this.memberService = memberService;
+    }
+
+    /** 회원가입 */
+    @GetMapping("/members/new") // get방식(url로 직접호출) html페이지 반환
+    public String createForm() {
+        return "members/createMemberForm";
+    }
+
+    @PostMapping("/members/new") // form태그에서 post방식으로 호출
+    public String create(MemberForm form) { // 파라미터 MemberForm form안의 setter메소드이름과 input태그의 name이 매칭
+        Member member = new Member();
+        member.setName(form.getName());
+
+        memberService.join(member);
+        return "redirect:/";
+    }
+
+    /** 회원조회 */
+    @GetMapping("/members")
+    public String list(Model model, @ModelAttribute("test") int test) { // model은 size 0인 상태로 파라미터로 들어옴
+        List<Member> members = memberService.findMembers();
+        model.addAttribute("membersss", members);
+        return "members/memberList"; // return에 model을 보내지않아도 값이 전달 되네?
+        /* 데이터를 view로 전달하는 방식
+         * 1. Model 객체
+         * Controller의 메서드는 Model타입 객체를 parameter로 받을 수 있다.
+         * 개발자는 직접 Model 객체를 생성하지 않고 parameter로 선언만 해주면 스프링이 알아서 만들어준다.
+         * JSP Servlet의 request나 session 내장 객체와 비슷한 역할이다.
+         * 컨트롤러 메소드 내부에서 데이터를 꺼내서 model에 담으면 자동으로 view에 전달된다.
+         *
+         * 2. @ModelAttribute("key") 어노테이션
+         * parameter 앞에 @ModelAttribute("key") 를 추가하면 view에 전달된다.
+         * http://localhost:8080/members?test=111
+         */
     }
 
 }

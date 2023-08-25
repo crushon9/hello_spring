@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="container">
+    <div>
+        <table>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>이름</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- forEach 구문과 비슷한 구조 m은 리스트안을 순환하며 값을 담는 임시 객체-->
+            <tr th:each="m : ${membersss}"> <!-- model.addAttribute("membersss", members); key값과 매칭-->
+                <td th:text="${m.id}"></td>
+                <td th:text="${m.name}"></td>
+                <td th:text="${test}"></td>
+            </tr>
+            <td th:text="${test}"></td>
+            </tbody>
+        </table>
+    </div>
+</div> <!-- /container -->
+</body>
+</html>
