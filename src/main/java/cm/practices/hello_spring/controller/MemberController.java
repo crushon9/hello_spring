@@ -50,7 +50,7 @@ public class MemberController {
 
     /** 회원조회 */
     @GetMapping("/members")
-    public String list(Model model, @ModelAttribute("keyyy") String keyyy) { // model은 size 0인 상태로 파라미터로 들어옴
+    public String list(Model model) { // model은 size 0인 상태로 파라미터로 들어옴
         List<Member> members = memberService.findMembers();
         model.addAttribute("membersss", members);
         return "members/memberList"; // return에 model을 보내지않아도 값이 전달 되네?
@@ -61,9 +61,14 @@ public class MemberController {
          * JSP Servlet의 request나 session 내장 객체와 비슷한 역할이다.
          * 컨트롤러 메소드 내부에서 데이터를 꺼내서 model에 담으면 자동으로 view에 전달된다.
          *
-         * 2. @ModelAttribute("key") 어노테이션
-         * parameter 앞에 @ModelAttribute("key") 를 추가하면 view에 전달된다.
-         * http://localhost:8080/members?keyyy=111
+         * 2. @ModelAttribute 어노테이션
+         * parameter 앞에 @ModelAttribute 를 추가하면 view에 전달된다.
+         * @ModelAttribute("key") : 하나의 데이터를 받을수도 있고 ?key=111
+         * @ModelAttribute Member member : setter가 존재하는 클래스의 멤버변수들을 그룹으로 받을수도 있다 ?name=JJY&age=10
+         *
+         * @RequestParam과 @ModelAttribute 둘다 파라미터값을 받아 view로 넘겨주는 기능은 같다. 차이점은 매핑 갯수이다
+         * @RequestParam : 1:1매핑만 가능
+         * @ModelAttribute : 1:1매핑, 객체매핑 둘다 가능
          */
     }
 
