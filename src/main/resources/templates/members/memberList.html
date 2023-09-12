@@ -3,6 +3,8 @@
 <body>
 <div class="container">
     <div>
+        <h3 th:text="${keyyy}"></h3> <!-- @ModelAttribute("keyyy") 값과 매칭-->
+        <h3>아래는 Model로 보내진 데이터</h3>
         <table>
             <thead>
             <tr>
@@ -15,9 +17,7 @@
             <tr th:each="m : ${membersss}"> <!-- model.addAttribute("membersss", members); key값과 매칭-->
                 <td th:text="${m.id}"></td>
                 <td th:text="${m.name}"></td>
-                <td th:text="${keyyy}"></td> <!-- @ModelAttribute("keyyy") int test key값과 매칭-->
             </tr>
-            <td th:text="${keyyy}"></td>
             </tbody>
         </table>
     </div>
