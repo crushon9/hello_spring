@@ -58,12 +58,14 @@ class MemberServiceTest {
         IllegalStateException e = assertThrows(IllegalStateException.class, () -> memberService.join(member2));
         assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다.");
 
-   /*     try {
+        /** 리팩토링 이전 코드
+        try {
             memberService.join(member2);
             fail("예외가 발생하지 않았음 실패");
         } catch (IllegalStateException e) { // validateDuplicateMember에서 throw한 예외가 잡힘
             Assertions.assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다.");
-        }*/
+        }
+         */
     }
 
 }

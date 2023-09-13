@@ -28,7 +28,7 @@ public class MemberController {
     @Autowired // 생성자에 @Autowired 가 있으면 스프링이 연관된 객체를 스프링 컨테이너에서 찾아서 넣어준다.
     // (@Controller, @Service, @Repository 등의 어노테이션이 붙어있는 클래스를 스프링이 컴포넌트 스캔하여 스프링 컨테이너에 객체로 넣어둠)
     // 이렇게 객체 의존관계를 외부에서 넣어주는 것을 DI (Dependency Injection), 의존성 주입이라 한다.
-    // new 로 생성해서 직접 넣는 방식은 코드가 바뀌면 수정할 부분이 많기 때문에 느슨한 연결을 위해 @Autowired 스프링이 대신 넣어주는 방식으로 진화
+    // new 로 생성해서 직접 넣는 방식은 코드가 바뀌면 수정할 부분이 많기 때문에 DI로 의존관계를 느슨하게 한다
     public MemberController(MemberService memberService) {
         this.memberService = memberService;
     }

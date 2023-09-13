@@ -16,7 +16,7 @@ public class ViewController {
     }
 
     // 컨트롤러가 View를 반환하는 3가지 방식
-    // 1. 정적 컨텐츠 static : 컨트롤러를 타지 않고 그냥 html 파일 자체를 반환 (url이 겹치면 컨트롤러 우선 반환)
+    // 1. 정적 컨텐츠 static : 컨트롤러에 url이 없다면 static폴더에서 파일을 뒤져서 html 파일 자체를 반환 (컨트롤러가 정적 파일보다 우선순위가 높다)
 
     // 2. MVC와 템플릿 엔진 : viewResolver로 변환된 html를 반환하는 방식
     @GetMapping("view-mvc")
@@ -26,7 +26,7 @@ public class ViewController {
         return "view_template";
     }
 
-    // 3. API : @ResponseBody를 사용하면 viewResolver를 사용하지 않고 HttpMessageConverter(String컨버터,Json컨버터..) 가 동작하여 내용 그대로를 HTTP body에 반환
+    // 3. API : @ResponseBody를 사용하면 viewResolver를 사용하지 않고 HttpMessageConverter(String컨버터,Json컨버터..)가 동작하여 내용 그대로를 HTTP body에 반환
     @GetMapping("view-string")
     @ResponseBody // String 내용 그대로 HTTP body에 반환
     public String helloString(@RequestParam("name") String name) {
