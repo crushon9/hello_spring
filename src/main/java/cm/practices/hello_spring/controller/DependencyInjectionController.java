@@ -7,6 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 /* DI에는 3가지 방식이 있다
 필드 주입, setter 주입, 생성자 주입
 의존관계가 런타임 중에 동적으로 변하는 경우는 거의 없으므로 생성자 주입을 권장한다.*/
+
+/* 스프링 빈 등록에는 2가지 방식이 있다
+컴포넌트 스캔, 스프링 빈 수동 설정
+컴포넌트 스캔 방식과 빈 수동 설정 방식은 중복되면 오류가 발생한다 */
+
+/* 그럼 @Autowired는 뭘까? */
+
 public class DependencyInjectionController {
 
     @Autowired

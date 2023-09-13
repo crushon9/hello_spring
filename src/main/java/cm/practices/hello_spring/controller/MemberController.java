@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
-/* 컴포넌트 스캔과 자동 의존관계 설정
+/** 컴포넌트 스캔과 자동 의존관계 설정
  * @Component
  * 개발자가 직접 작성한 Class를 Bean으로 등록하기 위한 어노테이션
  * @Controller, @Service, @Repository의 클래스를 찾아보면 위에 @Component 어노테이션이 붙어있음
@@ -54,7 +54,7 @@ public class MemberController {
         List<Member> members = memberService.findMembers();
         model.addAttribute("membersss", members);
         return "members/memberList"; // return에 model을 보내지않아도 값이 전달 되네?
-        /* 데이터를 view로 전달하는 방식
+        /** 데이터를 view로 전달하는 방식
          * 1. Model 객체
          * Controller의 메서드는 Model타입 객체를 parameter로 받을 수 있다.
          * 개발자는 직접 Model 객체를 생성하지 않고 parameter로 선언만 해주면 스프링이 알아서 만들어준다.
