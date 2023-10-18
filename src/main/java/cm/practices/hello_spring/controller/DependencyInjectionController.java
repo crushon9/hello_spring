@@ -1,7 +1,6 @@
 package cm.practices.hello_spring.controller;
 
 import cm.practices.hello_spring.service.MemberService;
-import org.springframework.beans.factory.annotation.Autowired;
 
 
 /* DI에는 3가지 방식이 있다

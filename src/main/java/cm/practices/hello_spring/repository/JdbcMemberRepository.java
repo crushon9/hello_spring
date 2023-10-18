@@ -9,11 +9,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+/* JdbcMemberRepository : 순수 Jdbc
+ * 주의! 이렇게 JDBC API로 직접 코딩하는 것은 20년 전 이야기이다.
+ * 고대 개발자들이 이렇게 고생하고 살았구나 생각하고, 정신건강을 위해 참고만 하고 넘어가자.*/
+
 // 어노테이션 없이 Config Java 파일로 Bean 등록
 public class JdbcMemberRepository implements MemberRepository {
 
+
     private final DataSource dataSource;
-    // DataSource는 데이터베이스 커넥션을 획득할 때 사용하는 객체
+    // DataSource는 데이터베이스 커넥션을 획득할 때 사용하는 객체 application.properties 에 DB 연결 정보가 있음
 
     public JdbcMemberRepository(DataSource dataSource) {
         this.dataSource = dataSource;

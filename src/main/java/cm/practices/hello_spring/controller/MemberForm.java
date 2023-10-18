@@ -8,7 +8,7 @@ public class MemberForm {
         return name;
     }
 
-    // form태그의 input name으로 찾아서 들어감
+    // setName에서 set빼고 첫글자를 소문자로 바꾼 결과(=name)이 input name="name"으로 찾아서 들어감
     public void setName(String name) {
         this.name = name;
     }

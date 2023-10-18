@@ -2,7 +2,6 @@ package cm.practices.hello_spring.service;
 
 import cm.practices.hello_spring.domain.Member;
 import cm.practices.hello_spring.repository.MemberRepository;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
