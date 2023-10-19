@@ -19,7 +19,7 @@ import javax.sql.DataSource;
 @Configuration
 public class SpringConfig {
 
-    private final DataSource dataSource;
+    private final DataSource dataSource; // 스프링이 제공하는 DB연결 객체
 
     public SpringConfig(DataSource dataSource) {
         this.dataSource = dataSource;
