@@ -2,8 +2,6 @@ package cm.practices.hello_spring;
 
 import cm.practices.hello_spring.repository.JdbcTemplateMemberRepository;
 import cm.practices.hello_spring.repository.MemberRepository;
-import cm.practices.hello_spring.repository.MemoryMemberRepository;
-import cm.practices.hello_spring.repository.JdbcMemberRepository;
 import cm.practices.hello_spring.service.MemberService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
