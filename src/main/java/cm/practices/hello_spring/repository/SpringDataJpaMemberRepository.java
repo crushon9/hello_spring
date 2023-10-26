@@ -5,12 +5,11 @@ import org.springframework.data.jpa.repository.JpaRepository; // 기본적인 �
 
 import java.util.Optional;
 
-// 스프링 데이터 JPA는 JPA를 편리하게 사용하도록 도와주는 기술
+/** 스프링 데이터 JPA는 JPA를 편리하게 사용하도록 도와주는 기술
+ * interface를 생성하고 JpaRepository를 extends하면
+ * 스프링데이터jpa 가 자동 구현하여 스프링 bean으로 등록
+ * 기본적인 메서드 save, findAll, 페이징기능 등은 만들지 않아도 있음 */
 public interface SpringDataJpaMemberRepository extends JpaRepository<Member, Long>, MemberRepository {
-    // interface를 생성하고 JpaRepository를 extends하면
-    // 스프링데이터jpa 가 자동 구현하여 스프링 bean으로 등록
-    // 기본적인 메서드 save, findAll, 페이징기능 등은 만들지 않아도 있음
-    
     @Override
     Optional<Member> findByName(String name);
     // 공통 메서드에 없는것은 메서드 이름 규칙에 의해 jpql생성

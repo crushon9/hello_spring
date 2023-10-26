@@ -13,13 +13,10 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.*; // static import하면 assertThat메소드를 바로 사용가능
 
 class MemoryMemberRepositoryTest { // class를 실행하면 test 메소드 모두 동작된다. 순서는 보장되지 않는다.
-    /*
-     * 한번에 여러 테스트를 실행하면 메모리에 직전 테스트의 결과가 남을 수 있다.
-     * @AfterEach 를 사용하면 각 테스트가 종료될 때 마다 메모리에 저장된 데이터를 삭제한다.
-     */
     MemoryMemberRepository repository = new MemoryMemberRepository();
 
-    @AfterEach
+    @AfterEach  /* 한번에 여러 테스트를 실행하면 메모리에 직전 테스트의 결과가 남을 수 있다.
+     @AfterEach 를 사용하면 각 테스트가 종료될 때 마다 메모리에 저장된 데이터를 삭제한다.*/
     public void afterEach() {
         repository.clearStore();
     }

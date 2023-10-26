@@ -54,11 +54,6 @@ public class SpringConfig {
     public MemberService memberService() {
         return new MemberService(memberRepository);
     }
-    
-    @Bean // AOP는 @component 보다 직접 설정으로 등록하는것이 가시적인 효과가 있다
-    public TimeTraceAop timeTraceAop() {
-        return new TimeTraceAop();
-    }
 }
 
 /** 객체 지향 설계의 5원칙 SOLID

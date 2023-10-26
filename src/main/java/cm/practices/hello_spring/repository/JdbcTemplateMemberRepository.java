@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-/* JdbcTemplateMemberRepository : JdbcTemplate lib 적용된 버젼
+/** JdbcTemplateMemberRepository : JdbcTemplate lib 적용된 버젼
  * JdbcTemplate 라이브러리는 JdbcMemberRepository에 작성된 반복 코드를 제거해준다 (MyBatis도 비슷한 라이브러리)
  * 단 쿼리는 직접 작성하여야 한다 (JPA는 쿼리도 대신 작성)
  */

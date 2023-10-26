@@ -30,6 +30,8 @@ public class MemberController {
     // new 로 생성해서 직접 넣는 방식은 코드가 바뀌면 수정할 부분이 많기 때문에 DI로 의존관계를 느슨하게 한다
     public MemberController(MemberService memberService) {
         this.memberService = memberService;
+        System.out.println("memberService = "+memberService.getClass()); // AOP Proxy class 확인용 log
+        // memberService = class cm.practices.hello_spring.service.MemberService$$EnhancerBySpringCGLIB$$441c2635
     }
 
     /** 회원가입 */

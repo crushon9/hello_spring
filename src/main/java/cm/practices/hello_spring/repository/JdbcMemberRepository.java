@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-/* JdbcMemberRepository : 순수 Jdbc
+/** JdbcMemberRepository : 순수 Jdbc
  * 주의! 이렇게 JDBC API로 직접 코딩하는 것은 20년 전 이야기이다.
  * 고대 개발자들이 이렇게 고생하고 살았구나 생각하고, 정신건강을 위해 참고만 하고 넘어가자.*/
 
