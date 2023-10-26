@@ -1,5 +1,6 @@
 package cm.practices.hello_spring;
 
+import cm.practices.hello_spring.aop.TimeTraceAop;
 import cm.practices.hello_spring.repository.JdbcTemplateMemberRepository;
 import cm.practices.hello_spring.repository.JpaMemberRepository;
 import cm.practices.hello_spring.repository.MemberRepository;
@@ -52,6 +53,11 @@ public class SpringConfig {
     @Bean
     public MemberService memberService() {
         return new MemberService(memberRepository);
+    }
+    
+    @Bean // AOP는 @component 보다 직접 설정으로 등록하는것이 가시적인 효과가 있다
+    public TimeTraceAop timeTraceAop() {
+        return new TimeTraceAop();
     }
 }
 
