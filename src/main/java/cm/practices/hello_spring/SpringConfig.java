@@ -1,11 +1,14 @@
 package cm.practices.hello_spring;
 
 import cm.practices.hello_spring.repository.JdbcTemplateMemberRepository;
+import cm.practices.hello_spring.repository.JpaMemberRepository;
 import cm.practices.hello_spring.repository.MemberRepository;
 import cm.practices.hello_spring.service.MemberService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.persistence.EntityManager;
 import javax.sql.DataSource;
 
 /** 자바 코드로 직접 스프링 빈 등록하기
@@ -17,10 +20,12 @@ import javax.sql.DataSource;
 @Configuration
 public class SpringConfig {
 
-    private final DataSource dataSource; // 스프링이 제공하는 DB연결 객체
+ /*   private final DataSource dataSource; // 스프링이 제공하는 DB연결 객체
+    private final EntityManager em; // JPA 연결 객체
 
-    public SpringConfig(DataSource dataSource) {
+    public SpringConfig(DataSource dataSource, EntityManager em) {
         this.dataSource = dataSource;
+        this.em = em;
     }
 
     @Bean // 서비스 기본생성자를 생성할때, 매개변수 있는 생성자(서비스 클래스에 있는)를 돌려준다 이때 매개변수로는 아래의 레파지토리를 돌려주는 메소드를 넣는다
@@ -33,7 +38,20 @@ public class SpringConfig {
     public MemberRepository memberRepository() {
         // return new MemoryMemberRepository();
         // return new JdbcMemberRepository(dataSource);
-        return new JdbcTemplateMemberRepository(dataSource);
+        // return new JdbcTemplateMemberRepository(dataSource);
+        return new JpaMemberRepository(em);
+    }*/
+
+    // 스프링 데이터 JPA
+    private final MemberRepository memberRepository;
+
+    @Autowired
+    public SpringConfig(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
+    @Bean
+    public MemberService memberService() {
+        return new MemberService(memberRepository);
     }
 }
 

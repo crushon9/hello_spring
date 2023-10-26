@@ -2,10 +2,12 @@ package cm.practices.hello_spring.service;
 
 import cm.practices.hello_spring.domain.Member;
 import cm.practices.hello_spring.repository.MemberRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
+@Transactional // JPA를 통한 모든 데이터 변경은 트랜잭션 안에서 실행해야 한다.
 // service는 비즈니스에 맞게 기능을 구현하고, repository는 DB 기능에 맞춰서 구현한다
 public class MemberService {
 

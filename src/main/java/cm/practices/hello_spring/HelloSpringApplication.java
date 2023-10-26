@@ -25,5 +25,5 @@ public class HelloSpringApplication {
  * 도메인: 비즈니스 도메인 객체, 예) 회원, 주문, 쿠폰 등등 주로 데이터베이스에 저장하고 관리됨
  */
 
-// /c/Program Files (x86)/H2/bin 경로에서 /h2.bat 실행 후 서버 올리기
+// /c/Program Files (x86)/H2/bin 경로에서 ./h2.bat 실행 후 서버 올리기
 // DB는 build.gradle에 의존되어있어 스프링 시작시 자동 시작되며 application.properties 에 DB연결정보가 있음
