@@ -9,7 +9,13 @@ import java.util.Optional;
  * interface를 생성하고 JpaRepository를 extends하면
  * 스프링데이터jpa 가 자동 구현하여 스프링 bean으로 등록
  * 기본적인 메서드 save, findAll, 페이징기능 등은 만들지 않아도 있음 */
-public interface SpringDataJpaMemberRepository extends JpaRepository<Member, Long>, MemberRepository {
+public interface SpringDataJpaMemberRepository extends JpaRepository<Member, Long>, MemberRepository { // 다중상속
+/** extends & implements
+    클래스 ← 클래스 : extends가능(단일), implements불가능
+    클래스 ← 인터페이스 : extends불가능, implements가능(다중)
+    인터페이스 ← 클래스 : extends불가능, implements불가능
+    인터페이스 ← 인터페이스 : extends가능(다중), implements불가능 */
+
     @Override
     Optional<Member> findByName(String name);
     // 공통 메서드에 없는것은 메서드 이름 규칙에 의해 jpql생성

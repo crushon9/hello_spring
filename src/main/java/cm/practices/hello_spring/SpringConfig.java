@@ -43,7 +43,7 @@ public class SpringConfig {
         return new JpaMemberRepository(em);
     }*/
 
-    // 스프링 데이터 JPA
+    // 스프링 데이터 JPA : interface를 생성하고 JpaRepository를 extends하면 스프링데이터jpa 가 자동 구현하여 스프링 bean으로 등록
     private final MemberRepository memberRepository;
 
     @Autowired
